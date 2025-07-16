@@ -1,0 +1,62 @@
+/* Modal styles */
+.modal-backdrop {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(10,20,40,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.modal {
+  background: #182848;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(30,144,255,0.15);
+  padding: 24px 32px;
+  min-width: 300px;
+  max-width: 90vw;
+}
+.modal-content p {
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  color: #b3e0ff;
+}
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+.modal-btn {
+  padding: 8px 20px;
+  border: none;
+  border-radius: 6px;
+  background: linear-gradient(90deg, #1e90ff 0%, #00bfff 100%);
+  color: #b3e0ff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: 0 2px 8px #1e90ff33;
+}
+.modal-btn.confirm { background: #1e90ff; color: #fff; }
+.modal-btn.cancel { background: #ff4d4d; color: #fff; }
+.modal-btn:hover { opacity: 0.92; filter: brightness(1.08); }
+
+/* Toast styles */
+.toast {
+  position: fixed;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #101c3a;
+  color: #b3e0ff;
+  padding: 14px 32px;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(30,144,255,0.18);
+  font-size: 1rem;
+  z-index: 1100;
+  animation: fadeInUp 0.3s;
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px) translateX(-50%); }
+  to { opacity: 1; transform: translateY(0) translateX(-50%); }
+} 

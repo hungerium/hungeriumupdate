@@ -1,0 +1,700 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Root variables */
+:root {
+  --primary-gold: #FFD700;
+  --secondary-gold: #FFD700;
+  --dark-brown: #101c3a;
+  --medium-brown: #101c3a;
+  --light-brown: #fff;
+  --accent-orange: #1e90ff;
+  --color-text: 255,255,255;
+}
+
+/* Performance optimizations */
+.optimize-gpu {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Navbar kompakt stilleri */
+.navbar-compact {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(212, 160, 23, 0.1);
+}
+
+/* Connect wallet button kompakt */
+.wallet-button-compact {
+  background: linear-gradient(135deg, var(--primary-gold), var(--secondary-gold));
+  border: none;
+  border-radius: 9999px;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(212, 160, 23, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 140px;
+  justify-content: center;
+}
+
+.wallet-button-compact:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(212, 160, 23, 0.4);
+}
+
+/* Migration button kompakt */
+.migration-button-compact {
+  background: linear-gradient(135deg, #f97316, #ea580c);
+  border: none;
+  border-radius: 9999px;
+  padding: 0.375rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 10px rgba(249, 115, 22, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.migration-button-compact:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(249, 115, 22, 0.4);
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .wallet-button-compact {
+    font-size: 0.75rem;
+    padding: 0.375rem 0.75rem;
+    min-width: 100px;
+  }
+  
+  .migration-button-compact {
+    font-size: 0.6875rem;
+    padding: 0.25rem 0.5rem;
+  }
+}
+
+/* Loading spinner */
+.loading-spinner {
+  width: 2rem;
+  height: 2rem;
+  border: 2px solid rgba(212, 160, 23, 0.3);
+  border-top: 2px solid var(--primary-gold);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Modern navbar button styles */
+.modern-nav-button {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.modern-nav-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.modern-nav-button:hover::before {
+  transform: translateX(100%);
+}
+
+.modern-nav-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(212, 160, 23, 0.3);
+}
+
+/* Updated Button variants with harmonious colors */
+.btn-variant-default {
+  background: linear-gradient(135deg, #101c3a, #1e233a);
+  color: #fff;
+  border: 1px solid rgba(33, 150, 243, 0.3);
+  backdrop-filter: blur(8px);
+}
+
+.btn-variant-default:hover {
+  border-color: rgba(33, 150, 243, 0.6);
+  background: linear-gradient(135deg, #1e90ff, #00bfff);
+  color: #fff;
+  box-shadow: 0 8px 25px rgba(33, 150, 243, 0.3);
+}
+
+.btn-variant-primary {
+  background: linear-gradient(135deg, #1e90ff, #00bfff);
+  color: #fff;
+  border: 1px solid rgba(33, 150, 243, 0.5);
+}
+
+.btn-variant-primary:hover {
+  background: linear-gradient(135deg, #00bfff, #1e90ff);
+  border-color: #1e90ff;
+  box-shadow: 0 8px 25px rgba(33, 150, 243, 0.5);
+}
+
+.btn-variant-games {
+  background: linear-gradient(135deg, #d97706, #ea580c);
+  color: white;
+  border: 1px solid rgba(217, 119, 6, 0.5);
+}
+
+.btn-variant-games:hover {
+  background: linear-gradient(135deg, #ea580c, #d97706);
+  border-color: #ea580c;
+  box-shadow: 0 8px 25px rgba(217, 119, 6, 0.5);
+}
+
+.btn-variant-staking {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: white;
+  border: 1px solid #16a34a;
+}
+
+.btn-variant-staking:hover {
+  background: linear-gradient(135deg, #16a34a, #22c55e);
+  border-color: #22c55e;
+  box-shadow: 0 8px 25px rgba(34, 197, 94, 0.3);
+}
+
+.btn-variant-nft {
+  background: linear-gradient(135deg, #a21caf, #7c3aed);
+  color: white;
+  border: 1px solid #7c3aed;
+}
+
+.btn-variant-nft:hover {
+  background: linear-gradient(135deg, #7c3aed, #a21caf);
+  border-color: #a21caf;
+  box-shadow: 0 8px 25px rgba(124, 58, 237, 0.3);
+}
+
+.btn-variant-migrate {
+  background: linear-gradient(135deg, #f43f5e, #f59e42);
+  color: white;
+  border: 1px solid #f59e42;
+}
+
+.btn-variant-migrate:hover {
+  background: linear-gradient(135deg, #f59e42, #f43f5e);
+  border-color: #f43f5e;
+  box-shadow: 0 8px 25px rgba(245, 158, 66, 0.3);
+}
+
+.btn-variant-wallet {
+  background: linear-gradient(135deg, #D4A017, #FFD700, #A77B06);
+  color: white;
+  border: 1px solid #FFD700;
+}
+
+.btn-variant-wallet:hover {
+  background: linear-gradient(135deg, #A77B06, #FFD700, #D4A017);
+  border-color: #D4A017;
+  box-shadow: 0 8px 25px rgba(212, 160, 23, 0.5);
+}
+
+/* Compact Games section enhancements */
+.game-card-compact {
+  transition: all 0.5s ease;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.game-card-compact:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(212, 160, 23, 0.2);
+}
+
+.game-image-overlay {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.3) 0%,
+    transparent 50%,
+    rgba(212, 160, 23, 0.1) 100%
+  );
+  transition: all 0.3s ease;
+}
+
+.game-image-overlay:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.1) 0%,
+    transparent 50%,
+    rgba(212, 160, 23, 0.2) 100%
+  );
+}
+
+/* Compact Stats Cards */
+.stats-card-compact {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.stats-card-compact:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Modal backdrop blur */
+.modal-backdrop {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Responsive improvements */
+@media (max-width: 1024px) {
+  .modern-nav-button {
+    font-size: 0.75rem;
+    padding: 0.5rem 0.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .modern-nav-button {
+    font-size: 0.6875rem;
+    padding: 0.375rem 0.5rem;
+  }
+}
+
+@layer base {
+  :root {
+    --color-primary: 33, 150, 243;
+    --color-secondary: 0, 191, 255;
+    --color-background: 16, 28, 58;
+    --color-surface: 16, 28, 58;
+    --color-text: 255,255,255;
+    --shadow-color: 33, 150, 243;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: rgb(var(--color-background));
+    font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+    text-rendering: optimizeLegibility;
+    /* Eklenen önbellek iyileştirmesi */
+    content-visibility: auto;
+    /* Yazı tipi yükleme performansını artırın */
+    font-display: swap;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply min-h-screen bg-gradient-to-b from-[#101c3a] to-[#1e233a] text-white antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+    /* Daha iyi kaydırma deneyimi */
+    overscroll-behavior: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-gradient-to-r from-[#D4A017] to-[#A77B06] 
+           text-white font-bold py-2 px-6 rounded-full 
+           transition-all duration-300 shadow-[0_4px_14px_rgba(212,160,23,0.4)]
+           hover:shadow-[0_6px_20px_rgba(212,160,23,0.6)] hover:scale-[1.03]
+           active:scale-[0.97] disabled:opacity-50 focus:outline-none
+           focus:ring-2 focus:ring-[#D4A017] focus:ring-opacity-60
+           disabled:cursor-not-allowed;
+    /* Mobil cihazlarda dokunuş iyileştirmesi */
+    touch-action: manipulation;
+  }
+  
+  .card-coffee {
+    @apply bg-[#101c3a]/90 p-7 rounded-2xl shadow-xl border border-[#1e90ff]/30 hover:shadow-[0_0_25px_rgba(33,150,243,0.5)] transition-all duration-500 transform hover:-translate-y-2 backdrop-blur-sm;
+    color: #fff;
+    /* Performans iyileştirmesi */
+    will-change: transform;
+  }
+
+  .glass-morphism {
+    @apply bg-[#3A2A1E]/70 backdrop-filter backdrop-blur-md border border-white/10;
+    /* Mobil için performans iyileştirmesi */
+    @apply @media (max-width: 768px) { backdrop-filter: blur(8px); }
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#FFD700] to-[#FFD700];
+    /* Daha keskin metin için */
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  .input-coffee {
+    @apply bg-[#101c3a]/80 border border-[#FFD700]/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#FFD700] focus:ring-2 focus:ring-[#FFD700]/30 transition-all duration-300;
+    /* Erişilebilirlik artırımı */
+    @apply focus:ring-offset-2 focus:ring-offset-[#101c3a];
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fade-in 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  }
+
+  .transaction-status {
+    @apply fixed bottom-5 right-5 bg-[#1A0F0A]/95
+           py-3.5 px-6 rounded-xl border border-[#D4A017]/50
+           text-[#D4A017] text-sm font-medium z-50 
+           shadow-[0_4px_20px_rgba(212,160,23,0.3)] backdrop-blur-md;
+    animation: slide-in 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .transaction-status a {
+    @apply text-[#D4A017] font-semibold no-underline hover:underline transition-colors;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-steam {
+    animation: steam 4s ease-out infinite;
+  }
+
+  .animate-bean-spin {
+    animation: bean-spin 10s linear infinite;
+  }
+  
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
+  }
+
+  /* Yükleme göstergesi iyileştirmesi */
+  .loading-spinner {
+    @apply w-10 h-10 border-4 border-[#D4A017]/20 border-t-[#D4A017] rounded-full animate-spin;
+  }
+  
+  /* Modern tıklama efekti */
+  .click-effect {
+    @apply relative overflow-hidden;
+  }
+  
+  .click-effect::after {
+    @apply content-[''] absolute w-full h-full top-0 left-0 bg-white/20 
+           scale-0 rounded-full transform-gpu opacity-0 transition-all duration-500;
+  }
+  
+  .click-effect:active::after {
+    @apply scale-150 opacity-100 duration-300;
+  }
+  
+  /* Scroll bazlı animasyon için yardımcı sınıf */
+  .reveal-on-scroll {
+    @apply opacity-0 translate-y-10 transition-all duration-700;
+  }
+  
+  .reveal-on-scroll.revealed {
+    @apply opacity-100 translate-y-0;
+  }
+  
+  /* Mobil dokunuş iyileştirmeleri */
+  @media (max-width: 768px) {
+    .touch-target {
+      @apply min-h-[44px] min-w-[44px]; /* Apple tarafından önerilen minimum dokunma hedefi */
+    }
+    
+    /* Mobil cihazlarda gölgeleri azalt */
+    .card-coffee {
+      @apply shadow-md hover:shadow-lg;
+    }
+  }
+  
+  /* Performans iyileştirmesi */
+  .optimize-gpu {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+    will-change: transform, opacity;
+  }
+}
+
+/* Oyun stilleri */
+.game-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(var(--color-background));
+  position: relative;
+  overflow: hidden;
+}
+
+#hungerium-game,
+#coffy-game {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.game-loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgb(var(--color-text));
+  font-size: 1.5rem;
+}
+
+/* iframe styles */
+iframe {
+  background-color: rgb(var(--color-background));
+}
+
+/* Game styles */
+.game-container {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+  overflow: hidden;
+}
+
+.game-frame {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes steam {
+  0% { 
+    transform: scale(1) translateY(0) rotate(-5deg); 
+    opacity: 0.8;
+  }
+  100% { 
+    transform: scale(1.8) translateY(-60px) rotate(10deg); 
+    opacity: 0; 
+  }
+}
+
+@keyframes bean-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-in {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+/* Dark mode specific styles */
+.dark .bg-light {
+  @apply bg-[#1A0F0A];
+}
+
+.dark .text-light {
+  @apply text-[#E8D5B5];
+}
+
+/* Mobile optimizations */
+@media (max-width: 640px) {
+  .transaction-status {
+    @apply bottom-3 right-3 left-3 text-center;
+  }
+
+  .animate-float {
+    animation-duration: 4s;
+  }
+}
+
+/* Oyun responsive stilleri */
+@media (max-width: 768px) {
+  .game-container {
+    height: calc(100vh - 60px);
+  }
+  
+  .btn-primary {
+    @apply py-2 px-4 text-sm;
+  }
+  
+  .card-coffee {
+    @apply p-5;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-float,
+  .animate-steam,
+  .animate-bean-spin,
+  .animate-fade-in {
+    animation: none;
+  }
+}
+
+/* Sayfa geçişleri için animasyon */
+.page-transition-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 400ms, transform 400ms;
+}
+
+.page-transition-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 300ms, transform 300ms;
+}
+
+/* Performans optimizasyonu */
+@media (prefers-reduced-motion: no-preference) {
+  .optimize-gpu {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+}
+
+/* Mobile touch improvements */
+@media (max-width: 768px) {
+  html {
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  body {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Touch manipulation for better mobile interaction */
+.touch-manipulation {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-[#1A0F0A];
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-[#D4A017]/30 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-[#D4A017]/50;
+}
+
+/* Button animations */
+.btn-primary {
+  @apply inline-flex items-center px-6 py-3 bg-gradient-to-r from-[#D4A017] to-[#A77B06] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 active:scale-95;
+}
+
+/* Card styles */
+.card-coffee {
+  @apply bg-gradient-to-br from-[#3A2A1E]/80 to-[#2A1F15]/80 border border-[#BFA181]/20 rounded-xl backdrop-blur-sm;
+}
+
+.hover-lift {
+  @apply transition-transform duration-300 hover:scale-105 hover:-translate-y-2;
+}
+
+/* Text gradient */
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-[#FFD700] via-[#F4C430] to-[#FFD700];
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Reveal on scroll */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
+
+.reveal-on-scroll.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Mobile responsive improvements */
+@media (max-width: 640px) {
+  .container {
+    @apply px-4;
+  }
+  
+  /* Improve mobile text readability */
+  h1, h2, h3 {
+    line-height: 1.2;
+  }
+  
+  /* Better mobile button spacing */
+  .btn-primary {
+    @apply px-4 py-2.5 text-sm;
+  }
+}
